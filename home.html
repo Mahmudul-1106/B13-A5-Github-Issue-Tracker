@@ -56,14 +56,143 @@
             </div>
         </section>
         <!-- Issue Section -->
-        <section class="w-11/12 mx-auto p-6 mt-4 bg-[#fff] rounded-lg shadow-2xl">
+        <section
+            class="flex justify-between items-center w-11/12 mx-auto p-6 mt-4 bg-[#FBFBFB] rounded-lg rounded-b-none shadow-2xl border-[1px] border-t-0 border-[#E9E9E9]">
             <div class="space-x-2 flex gap-2 items-center">
                 <img class="p-2 bg-[#ECE4FF] rounded-full" src="./assets/Aperture.png" alt="">
                 <div>
-                    <h3 class="text-xl font-semibold"><span>50</span> Issues</h3>
+                    <h3 class="text-xl font-semibold"><span id="issue-count">50</span> Issues</h3>
                     <p class="text-[#64748B]">Track and manage your project issues</p>
                 </div>
             </div>
+            <div class="flex gap-3">
+                <p class="flex items-center gap-2"><img class="w-4 h-4" src="./assets/open.png" alt=""> Open</p>
+                <p class="flex items-center gap-2"><img class="w-4 h-4" src="./assets/closed.png" alt=""> Closed</p>
+            </div>
+        </section>
+
+        <!-- Issue container -->
+        <section
+            class="w-11/12 mx-auto p-6  grid grid-cols-4 gap-4 bg-[#EFEFEF] rounded-t-none  rounded-lg border-[#FBFBFB] shadow-2xl">
+
+            <div class="bg-[#FBFBFB] p-4 rounded-xl space-y-3 shadow-xl border-t-4 border-[#00A96E]">
+                <div class="flex justify-between items-center ">
+                    <img src="./assets/Open-Status.png" alt="">
+                    <img src="./assets/closed-status.png" alt="">
+                    <p class="px-5 py-1 rounded-full text-[12px] bg-[#FEECEC] text-[#F04545]">HIGH</p>
+                    <p class="px-5 py-1 rounded-full text-[12px] bg-[#FFF6D1] text-[#F59E0B]">Medium</p>
+                    <p class="px-5 py-1 rounded-full text-[12px] bg-[#EEEFF2] text-[#9CA3AF]">Low</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-[14px]">Fix navigation menu on mobile devices</h3>
+                    <p class="text-[12px] text-[#64748B]">The navigation menu doesn't collapse properly on mobile
+                        devices...</p>
+                </div>
+                <div class="flex gap-2 py-3">
+                    <p class="px-3 py-1 rounded-full text-[12px] bg-[#FEECEC] text-[#F04545] border-2 border-[#FECACA]">
+                        <i class="fa-solid fa-bug"></i> BUG
+                    </p>
+                    <p class="px-3 py-1 rounded-full text-[12px] bg-[#FFF8DB] border-2 border-[#FDE68A] text-[#F04545]">
+                        <i class="fa-regular fa-life-ring"></i> help wanted
+                    </p>
+                    <p class="px-3 py-1 rounded-full text-[12px] bg-[#DEFCE8] border-2 border-[#BBF7D0] text-[#00A96E]">
+                        <i class="fa-regular fa-life-ring"></i> Enhancement
+                    </p>
+                </div>
+                <div class="border-t-2 border-[#E4E4E7] space-y-1 py-3">
+                    <p class="text-[12px] text-[#64748B]">#1 by john_doe</p>
+                    <p class="text-[12px] text-[#64748B]">1/15/2024</p>
+                </div>
+            </div>
+            <div class="bg-[#FBFBFB] p-4 rounded-xl space-y-3 shadow-xl border-t-4 border-[#00A96E]">
+                <div class="flex justify-between items-center ">
+                    <img src="./assets/Open-Status.png" alt="">
+                    <img src="./assets/closed-status.png" alt="">
+                    <p class="px-5 py-1 rounded-full text-[12px] bg-[#FEECEC] text-[#F04545]">HIGH</p>
+                    <p class="px-5 py-1 rounded-full text-[12px] bg-[#FFF6D1] text-[#F59E0B]">Medium</p>
+                    <p class="px-5 py-1 rounded-full text-[12px] bg-[#EEEFF2] text-[#9CA3AF]">Low</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-[14px]">Fix navigation menu on mobile devices</h3>
+                    <p class="text-[12px] text-[#64748B]">The navigation menu doesn't collapse properly on mobile
+                        devices...</p>
+                </div>
+                <div class="flex gap-2 py-3">
+                    <p class="px-3 py-1 rounded-full text-[12px] bg-[#FEECEC] text-[#F04545] border-2 border-[#FECACA]">
+                        <i class="fa-solid fa-bug"></i> BUG
+                    </p>
+                    <p class="px-3 py-1 rounded-full text-[12px] bg-[#FFF8DB] border-2 border-[#FDE68A] text-[#F04545]">
+                        <i class="fa-regular fa-life-ring"></i> help wanted
+                    </p>
+                    <p class="px-3 py-1 rounded-full text-[12px] bg-[#DEFCE8] border-2 border-[#BBF7D0] text-[#00A96E]">
+                        <i class="fa-regular fa-life-ring"></i> Enhancement
+                    </p>
+                </div>
+                <div class="border-t-2 border-[#E4E4E7] space-y-1 py-3">
+                    <p class="text-[12px] text-[#64748B]">#1 by john_doe</p>
+                    <p class="text-[12px] text-[#64748B]">1/15/2024</p>
+                </div>
+            </div>
+            <div class="bg-[#FBFBFB] p-4 rounded-xl space-y-3 shadow-xl border-t-4 border-[#00A96E]">
+                <div class="flex justify-between items-center ">
+                    <img src="./assets/Open-Status.png" alt="">
+                    <img src="./assets/closed-status.png" alt="">
+                    <p class="px-5 py-1 rounded-full text-[12px] bg-[#FEECEC] text-[#F04545]">HIGH</p>
+                    <p class="px-5 py-1 rounded-full text-[12px] bg-[#FFF6D1] text-[#F59E0B]">Medium</p>
+                    <p class="px-5 py-1 rounded-full text-[12px] bg-[#EEEFF2] text-[#9CA3AF]">Low</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-[14px]">Fix navigation menu on mobile devices</h3>
+                    <p class="text-[12px] text-[#64748B]">The navigation menu doesn't collapse properly on mobile
+                        devices...</p>
+                </div>
+                <div class="flex gap-2 py-3">
+                    <p class="px-3 py-1 rounded-full text-[12px] bg-[#FEECEC] text-[#F04545] border-2 border-[#FECACA]">
+                        <i class="fa-solid fa-bug"></i> BUG
+                    </p>
+                    <p class="px-3 py-1 rounded-full text-[12px] bg-[#FFF8DB] border-2 border-[#FDE68A] text-[#F04545]">
+                        <i class="fa-regular fa-life-ring"></i> help wanted
+                    </p>
+                    <p class="px-3 py-1 rounded-full text-[12px] bg-[#DEFCE8] border-2 border-[#BBF7D0] text-[#00A96E]">
+                        <i class="fa-regular fa-life-ring"></i> Enhancement
+                    </p>
+                </div>
+                <div class="border-t-2 border-[#E4E4E7] space-y-1 py-3">
+                    <p class="text-[12px] text-[#64748B]">#1 by john_doe</p>
+                    <p class="text-[12px] text-[#64748B]">1/15/2024</p>
+                </div>
+            </div>
+            <div class="bg-[#FBFBFB] p-4 rounded-xl space-y-3 shadow-xl border-t-4 border-[#00A96E]">
+                <div class="flex justify-between items-center ">
+                    <img src="./assets/Open-Status.png" alt="">
+                    <img src="./assets/closed-status.png" alt="">
+                    <p class="px-5 py-1 rounded-full text-[12px] bg-[#FEECEC] text-[#F04545]">HIGH</p>
+                    <p class="px-5 py-1 rounded-full text-[12px] bg-[#FFF6D1] text-[#F59E0B]">Medium</p>
+                    <p class="px-5 py-1 rounded-full text-[12px] bg-[#EEEFF2] text-[#9CA3AF]">Low</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-[14px]">Fix navigation menu on mobile devices</h3>
+                    <p class="text-[12px] text-[#64748B]">The navigation menu doesn't collapse properly on mobile
+                        devices...</p>
+                </div>
+                <div class="flex gap-2 py-3">
+                    <p class="px-3 py-1 rounded-full text-[12px] bg-[#FEECEC] text-[#F04545] border-2 border-[#FECACA]">
+                        <i class="fa-solid fa-bug"></i> BUG
+                    </p>
+                    <p class="px-3 py-1 rounded-full text-[12px] bg-[#FFF8DB] border-2 border-[#FDE68A] text-[#F04545]">
+                        <i class="fa-regular fa-life-ring"></i> help wanted
+                    </p>
+                    <p class="px-3 py-1 rounded-full text-[12px] bg-[#DEFCE8] border-2 border-[#BBF7D0] text-[#00A96E]">
+                        <i class="fa-regular fa-life-ring"></i> Enhancement
+                    </p>
+                </div>
+                <div class="border-t-2 border-[#E4E4E7] space-y-1 py-3">
+                    <p class="text-[12px] text-[#64748B]">#1 by john_doe</p>
+                    <p class="text-[12px] text-[#64748B]">1/15/2024</p>
+                </div>
+            </div>
+
+
         </section>
     </main>
 </body>
