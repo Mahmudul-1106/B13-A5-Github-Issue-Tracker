@@ -24,8 +24,9 @@
 </head>
 
 <body class="bg-[#F8FAFC] mx-auto">
-    <header class=" p-5 flex justify-between items-center bg-[#fff] border-b-[1px] border-[#E9E9E9]">
-        <div class="flex gap-2">
+    <header
+        class="p-5 flex-col sm:flex-row   flex justify-between items-center bg-[#fff] border-b-[1px] border-[#E9E9E9]">
+        <div class="flex flex-col sm:flex-row items-center text-center gap-2">
             <div><img class='w-9' src="./assets/github-logo.png" alt=""></div>
             <h3 class="text-2xl font-semibold">GitHub Issues Tracker</h3>
         </div>
@@ -48,17 +49,26 @@
 
     <main>
         <!-- Button Section -->
-        <section class="sticky top-[0px] w-11/12 mx-auto p-6 mt-14 bg-[#fff] rounded-lg ">
+        <section id="btn-section" class="sticky flex-wrap top-[0px] w-11/12 mx-auto p-6 mt-14 bg-[#fff] rounded-lg ">
             <div class="space-x-2">
-                <button class="w-24 btn btn-primary">All</button>
-                <button class="w-24 btn btn-primary btn-soft">Open</button>
-                <button class="w-24 btn btn-primary btn-soft">Closed</button>
+                <button id="btn-all" class="w-24 btn btn-primary" onclick="displayCondition('btn-all')">All</button>
+                <button id="btn-open" class="w-24 btn btn-primary btn-soft"
+                    onclick="displayCondition('btn-open')">Open</button>
+                <button id="btn-closed" class="w-24 btn btn-primary btn-soft"
+                    onclick="displayCondition('btn-closed')">Closed</button>
             </div>
         </section>
 
-        <!-- Issue Section -->
-        <section
-            class="flex justify-between items-center w-11/12 mx-auto p-6 mt-4 bg-[#FBFBFB] rounded-lg rounded-b-none shadow-2xl border-[1px] border-t-0 border-[#E9E9E9]">
+        <!-- Spinner -->
+        <section id="spinner" class="hidden mx-auto text-center p-10 bg-[#F8FAFC]">
+            <span class="loading loading-ring loading-xl"></span>
+            <span class="loading loading-ring loading-xl"></span>
+            <span class="loading loading-ring loading-xl"></span>
+        </section>
+
+        <!-- Issue Count Section -->
+        <section id="issue-count-container"
+            class="flex flex-col space-y-5 text-center sm:flex-row justify-between sm:text-left items-center w-11/12 mx-auto p-6 mt-4 bg-[#FBFBFB] rounded-lg rounded-b-none shadow-2xl border-[1px] border-t-0 border-[#E9E9E9]">
             <div class="space-x-2 flex gap-2 items-center">
                 <img class="p-2 bg-[#ECE4FF] rounded-full" src="./assets/Aperture.png" alt="">
                 <div>
@@ -74,7 +84,7 @@
 
         <!-- Issue container -->
         <section id="issue-container"
-            class="w-11/12 mx-auto p-6  grid grid-cols-4 gap-4 bg-[#EFEFEF] rounded-t-none  rounded-lg border-[#FBFBFB] shadow-2xl">
+            class="w-11/12 mx-auto p-6   grid sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-[#EFEFEF] rounded-t-none  rounded-lg border-[#FBFBFB] shadow-2xl">
 
         </section>
     </main>
@@ -82,40 +92,9 @@
 
     <!-- Modal -->
     <!-- Open the modal using ID.showModal() method -->
-    <button class="btn" onclick="my_modal.showModal()">open modal</button>
+    <!-- <button class="btn" onclick="my_modal.showModal()">open modal</button> -->
     <dialog id="my_modal" class="modal modal-bottom sm:modal-middle  space-y-2">
-        <div class=" w-[600px]">
-            <h3 class="text-lg font-bold">Fix broken image uploads</h3>
-            <div class="flex items-center space-x-2 ">
-                <P>Open</P> <img src="./assets/circle.png" alt="">
-                <p>Open By</p> <img src="./assets/circle.png" alt="">
-                <p>Date</p>
-            </div>
-            <div class="pt-6">
-                <P>BUG</P>
-            </div>
-            <div class="py-4">
-                <P>des</P>
-            </div>
-            <div class="bg-[#F8FAFC] p-4 flex justify-between items-center rounded-lg">
-                <div class="flex-1">
-                    <p class="text-[#64748B]">Assignee:</p>
-                    <p class="text-[16px] font-semibold">MAmmmm</p>
-                </div>
-                <div class="flex-1">
-                    <p class="text-[#64748B]">Priority:</p>
-                    <p>HIGH....</p>
-                </div>
 
-            </div>
-            <p class="pt-4">Press ESC key or click the button below to close</p>
-            <div class="modal-action">
-                <form method="dialog">
-                    <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn">Close</button>
-                </form>
-            </div>
-        </div>
     </dialog>
 </body>
 

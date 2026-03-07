@@ -1,10 +1,25 @@
 
+function showSpinner(){
+    document.getElementById('issue-count-container').classList.add('hidden');
+    document.getElementById('issue-container').classList.add('hidden');
+
+    document.getElementById('spinner').classList.remove('hidden');
+}
+
+function hideSpinner(){
+    document.getElementById('issue-count-container').classList.remove('hidden');
+    document.getElementById('issue-container').classList.remove('hidden');
+
+    document.getElementById('spinner').classList.add('hidden');
+}
 
 async function issueLoad(){
+    showSpinner();
     const url = await fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues');
     const res = await url.json();
     displayIssue(res.data);
 }
+
 
 function displayIssue(issues){
     const issueContainer = document.getElementById('issue-container');
@@ -84,17 +99,75 @@ function displayIssue(issues){
     let totalIssue = issueContainer.children.length;
    let issueCount = document.getElementById('issue-count');
    issueCount.innerText = totalIssue;
+   hideSpinner();
     
 }
 
+function displayCondition(id){
+    showSpinner();
+    let newIssue = [];
+     fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
+     .then(res => res.json())
+     .then(data => newDisplay(data.data))
+
+     function newDisplay(data){
+        
+        if(id === 'btn-open'){
+            // Activatio of Button
+            const btnList = document.querySelectorAll('#btn-section button');
+            btnList.forEach(btn => {
+                btn.classList.add('btn-soft');
+            })
+            document.getElementById(`${id}`).classList.remove('btn-soft');
+
+
+        data.forEach(issue => {
+        if(issue.status === 'open'){
+            newIssue.push(issue);
+        }
+    }) 
+    displayIssue(newIssue);
+    }
+
+    if(id === 'btn-closed'){
+        // Activation of Button
+        const btnList = document.querySelectorAll('#btn-section button');
+            btnList.forEach(btn => {
+                btn.classList.add('btn-soft');
+            })
+            document.getElementById(`${id}`).classList.remove('btn-soft');
+
+        data.forEach(issue =>{
+            if(issue.status === 'closed'){
+                newIssue.push(issue);
+            }
+        })
+
+        displayIssue(newIssue);
+        }
+
+    if(id === 'btn-all'){
+        // Activation of Button
+        const btnList = document.querySelectorAll('#btn-section button');
+            btnList.forEach(btn => {
+                btn.classList.add('btn-soft');
+            })
+            document.getElementById(`${id}`).classList.remove('btn-soft');
+
+        issueLoad();
+    }
+
+}
+
+}
+
 function modal(issue){
-    console.log(issue);
     const myModal = document.getElementById('my_modal');
     let date = new Date(issue.createdAt).toLocaleDateString();
     myModal.innerHTML = '';
     const div = document.createElement('div');
     div.innerHTML = `
-        <div class="modal-box w-full">
+        <div class="modal-box ">
             <h3 class="text-lg font-bold">${issue.title}</h3>
             <div class="flex items-center space-x-2 ">
 
@@ -148,11 +221,16 @@ function modal(issue){
             <div class="bg-[#F8FAFC] p-4 flex justify-between items-center rounded-lg">
                 <div class="flex-1">
                     <p class="text-[#64748B]">Assignee:</p>
-                    <p class="text-[16px] font-semibold">MAmmmm</p>
+                    <p class="text-[16px] font-semibold">${issue.assignee ? `${issue.assignee}`: `Not Assigned`}</p>
                 </div>
                 <div class="flex-1">
                     <p class="text-[#64748B]">Priority:</p>
-                    <p>HIGH....</p>
+                    ${issue.priority === "high" ? 
+                            `<p class="px-5 py-1 rounded-full w-[100px] text-center text-[12px] bg-[#FEECEC] text-[#F04545]">HIGH</p>`: 
+                            `${issue.priority === "medium" ?
+                                 '<p class="px-5 py-1 rounded-full w-[100px] text-center text-[12px] bg-[#FFF6D1] text-[#F59E0B]">Medium</p>' :
+                                 '<p class="px-5 py-1 rounded-full w-[100px] text-center text-[12px] bg-[#EEEFF2] text-[#9CA3AF]">Low</p>'} `                         
+                        }
                 </div>
 
             </div>
