@@ -23,9 +23,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-[#F8FAFC]">
-    <h1 class="text-4xl font-extrabold">Welcome to the assignment.</h1>
-    <button onclick="login()" class="btn btn-primary" type="button">Longin</button>
+<body class="w-4/12 mx-auto mt-12 p-8 bg-[#F8FAFC] rounded-2xl">
+
+    <div class="text-center mx-auto ">
+        <img class="text-center mx-auto" src="./assets/github-logo.png" alt="">
+        <h3 class="text-2xl font-semibold text-center mt-5">GitHub Issues Tracker</h3>
+        <p class="text-[#64748B] text-center text-xl mb-10">Login to manage your issues</p>
+    </div>
+    <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border p-6">
+
+        <label class="label text-[#1F2937] text-xl">Username</label>
+        <input id="username"
+            class="input w-full p-6 rounded-xl bg-[#fff] text-sm text-[#64748B] border-2 border-[#E4E4E7]" type="text"
+            placeholder="Enter Username: admin" />
+
+        <label class="label text-[#1F2937] text-xl mt-5">Password</label>
+        <input id="password"
+            class="input w-full p-6 rounded-xl bg-[#fff] text-sm text-[#64748B] border-2 border-[#E4E4E7]"
+            type="password" placeholder="Enter Password: admin123" />
+
+        <button onclick="login()" class="btn btn-primary mt-5 w-full p-6 rounded-xl text-xl">Login</button>
+    </fieldset>
 
     <script src="script/login.js"></script>
 </body>
