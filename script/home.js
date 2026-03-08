@@ -59,12 +59,12 @@ function displayIssue(issues){
 
                 ${issue.labels.map(label => {
                     if(label=== 'bug'){
-                       return `<p class="flex px-3 py-1 rounded-full text-[12px] bg-[#FEECEC] text-[#F04545] border-2 border-[#FECACA]">
+                       return `<p class="flex items-center px-3 py-1 rounded-full text-[12px] bg-[#FEECEC] text-[#F04545] border-2 border-[#FECACA]">
                         <i class="fa-solid fa-bug"></i> BUG </p>`
                     }
 
                     if(label=== 'help wanted'){
-                       return `<p class="px-3 py-1 rounded-full text-[12px] bg-[#FFF8DB] border-2 border-[#FDE68A] text-[#F04545]">
+                       return `<p class="flex items-center px-3 py-1 rounded-full text-[12px] bg-[#FFF8DB] border-2 border-[#FDE68A] text-[#F04545]">
                         <i class="fa-regular fa-life-ring"></i> help wanted </p>`
                     }
 
@@ -74,12 +74,12 @@ function displayIssue(issues){
                     }
 
                     if(label=== 'good first issue'){
-                       return `<p class="px-3 py-1 rounded-full text-[12px] bg-[#DEFCE8] border-2 border-[#BBF7D0] text-[#00A96E]">
+                       return `<p class="flex items-center px-3 py-1 rounded-full text-[12px] bg-[#DEFCE8] border-2 border-[#BBF7D0] text-[#00A96E]">
                          Good First Issue</p>`
                     }
 
                     else{
-                        return `<p class="px-3 py-1 rounded-full text-[12px] bg-[#DEFCE8] border-2 border-[#BBF7D0] text-[#00A96E]">
+                        return `<p class="flex items-center px-3 py-1 rounded-full text-[12px] bg-[#DEFCE8] border-2 border-[#BBF7D0] text-[#00A96E]"><i class="fa-regular fa-life-ring"></i>
                          ${label}
                     </p>`
                     }
@@ -158,7 +158,6 @@ function displayCondition(id){
     }
 
 }
-
 }
 
 function modal(issue){
@@ -187,27 +186,27 @@ function modal(issue){
 
                 ${issue.labels.map(label => {
                     if(label=== 'bug'){
-                       return `<p class="flex px-3 py-1 rounded-full text-[12px] bg-[#FEECEC] text-[#F04545] border-2 border-[#FECACA]">
+                       return `<p class="flex items-center px-3 py-1 rounded-full text-[12px] bg-[#FEECEC] text-[#F04545] border-2 border-[#FECACA]">
                         <i class="fa-solid fa-bug"></i> BUG </p>`
                     }
 
                     if(label=== 'help wanted'){
-                       return `<p class="px-3 py-1 rounded-full text-[12px] bg-[#FFF8DB] border-2 border-[#FDE68A] text-[#F04545]">
+                       return `<p class="flex items-center px-3 py-1 rounded-full text-[12px] bg-[#FFF8DB] border-2 border-[#FDE68A] text-[#F04545]">
                         <i class="fa-regular fa-life-ring"></i> help wanted </p>`
                     }
 
                     if(label=== 'enhancement'){
-                       return `<p class="flex items-center px-3 py-1 rounded-full text-[12px] bg-[#DEFCE8] border-2 border-[#BBF7D0] text-[#00A96E]">
+                       return `<p class="flex items-center flex items-center px-3 py-1 rounded-full text-[12px] bg-[#DEFCE8] border-2 border-[#BBF7D0] text-[#00A96E]">
                         <i class="fa-regular fa-life-ring"></i> Enhancement </p>`
                     }
 
                     if(label=== 'good first issue'){
-                       return `<p class="px-3 py-1 rounded-full text-[12px] bg-[#DEFCE8] border-2 border-[#BBF7D0] text-[#00A96E]">
+                       return `<p class="flex items-center px-3 py-1 rounded-full text-[12px] bg-[#DEFCE8] border-2 border-[#BBF7D0] text-[#00A96E]"><i class="fa-regular fa-life-ring"></i>
                          Good First Issue</p>`
                     }
 
                     else{
-                        return `<p class="px-3 py-1 rounded-full text-[12px] bg-[#DEFCE8] border-2 border-[#BBF7D0] text-[#00A96E]">
+                        return `<p class="flex items-center px-3 py-1 rounded-full text-[12px] bg-[#DEFCE8] border-2 border-[#BBF7D0] text-[#00A96E]"><i class="fa-regular fa-life-ring"></i>
                          ${label}
                     </p>`
                     }
@@ -246,5 +245,22 @@ function modal(issue){
     myModal.appendChild(div);
     myModal.showModal();
 }
+
+// search function
+document.getElementById('btn-search').addEventListener('click', function(){
+    const search = document.getElementById('search');
+    const searchValue = search.value;
+    showSpinner();
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`) 
+    .then(res => res.json())
+    .then(data => displayIssue(data.data))
+
+    
+    search.value = "";
+    const btnList = document.querySelectorAll('#btn-section button');
+    btnList.forEach(btn => btn.classList.add('btn-soft'));
+  })
+
+
 
 issueLoad();
