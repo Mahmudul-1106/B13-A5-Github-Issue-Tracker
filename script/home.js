@@ -261,6 +261,8 @@ document.getElementById('btn-search').addEventListener('click', function(){
     btnList.forEach(btn => btn.classList.add('btn-soft'));
   })
 
-
+function logout(){
+    window.location.replace('./index.html');
+}
 
 issueLoad();
